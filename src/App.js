@@ -17,29 +17,46 @@ class App extends Component {
 
 
     render() {
-        const isLoggedIn=false;
-        if ()
-        return (
-             <Router>
-                <div className="App">
-                    <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                        <h1 className="App-title">TODO React App</h1>
-                    </header>
-                    <br/>
-                    <br/>
-                    <ul>
-                        <li><Link to="/">Login</Link></li>
-                        <li><Link to="/todo">Todo</Link></li>
-                    </ul>
-                    <div>
-                         <Route exact path="/" component={this.LoginView}/>
-                         <Route path="/todo" component={this.TodoView}/>
+        const isLoggedIn = false;
+        if (isLoggedIn) {
+            return (
+                <Router>
+                    <div className="App">
+                        <header className="App-header">
+                            <img src={logo} className="App-logo" alt="logo" />
+                            <h1 className="App-title">TODO React App</h1>
+                        </header>
+                        <br />
+                        <br />
+                        <ul>
+                            <li><Link to="/todo">Todo</Link></li>
+                        </ul>
+                        <div>
+                            <Route path="/todo" component={this.TodoView} />
+                        </div>
                     </div>
-                </div>
-             </Router>
-
-        );
+                </Router>
+            );
+        } else {
+            return (
+                <Router>
+                    <div className="App">
+                        <header className="App-header">
+                            <img src={logo} className="App-logo" alt="logo" />
+                            <h1 className="App-title">TODO React App</h1>
+                        </header>
+                        <br />
+                        <br />
+                        <ul>
+                            <li><Link to="/">Login</Link></li>
+                        </ul>
+                        <div>
+                            <Route exact path="/" component={this.LoginView} />
+                       </div>
+                    </div>
+                </Router>
+            );
+        }
     }
 
     handleTextChange(e) {
