@@ -13,12 +13,18 @@ class App extends Component {
      LoginView = () => (
           <Login/>
       );
+    localStorage.setItem("isLoggedIn",false);
+    localStorage.setItem('user',"Felipe");
+    localStorage.setItem('password',"react-material");
 
-
+    userState ={
+        isLoggedIn = localStorage.getItem("isLoggedIn"),
+        user = "",
+        password=""
+    };
 
     render() {
-        const isLoggedIn = false;
-        if (isLoggedIn) {
+        if (userState.isLoggedIn) {
             return (
                 <Router>
                     <div className="App">
